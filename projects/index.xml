@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on David Rondon</title>
+    <link>https://davidbrondon.com/projects/</link>
+    <description>Recent content in Projects on David Rondon</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://davidbrondon.com/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Airfoil Geometry Optimization via Machine Learning &amp; CFD</title>
+      <link>https://davidbrondon.com/projects/airfoil-geometry-optimization/</link>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://davidbrondon.com/projects/airfoil-geometry-optimization/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This work was part of a &lt;strong&gt;VIP research program&lt;/strong&gt; centered on airfoil geometry generation, aerodynamic performance evaluation, and iterative design improvement. My role focused heavily on the computational pipeline that turns design variables into usable geometry and downstream analysis.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Ice Accretion Research</title>
+      <link>https://davidbrondon.com/projects/ice-accretion-research/</link>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://davidbrondon.com/projects/ice-accretion-research/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This project focused on &lt;strong&gt;airfoil ice accretion modeling&lt;/strong&gt; using a workflow built around NASA LEWICE, OpenFOAM, and ParaView. The work involved more than analysis alone: a big part of the contribution was making the software stack usable and dependable for the rest of the team.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Novel Rocket Nozzle Design</title>
+      <link>https://davidbrondon.com/projects/novel-rocket-nozzle-design/</link>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://davidbrondon.com/projects/novel-rocket-nozzle-design/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This project explores a &lt;strong&gt;three-leaf-clover rocket nozzle outlet geometry&lt;/strong&gt; as an alternative to conventional axisymmetric exits. The objective is to study whether a nontraditional exit shape can meaningfully influence thrust, shock structure, or flow separation behavior across changing pressure ratios.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Design Class Competition Winner</title>
+      <link>https://davidbrondon.com/projects/design-class-competition-winner/</link>
+      <pubDate>Tue, 01 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://davidbrondon.com/projects/design-class-competition-winner/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;This project was a rapid &lt;strong&gt;design-to-fabrication challenge&lt;/strong&gt; completed as part of a class competition. The goal was not just to model a concept, but to produce a working machine within real limits on time, tools, and materials.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>COMING SOON</title>
+      <link>https://davidbrondon.com/projects/isentropic-flow-sensitivity/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://davidbrondon.com/projects/isentropic-flow-sensitivity/</guid>
+      <description>&lt;!--&#xA;---&#xA;title: &#34;Isentropic Flow Parameter Sensitivity in Variable-Geometry Inlets&#34;&#xA;date: 2024-08-01&#xA;category: &#34;Propulsion · Research&#34;&#xA;subtitle: &#34;Parametric sensitivity analysis of isentropic flow parameters across a family of variable-geometry supersonic inlets using MATLAB.&#34;&#xA;tags: [&#34;Inlet Design&#34;, &#34;Isentropic Flow&#34;, &#34;MATLAB&#34;, &#34;Parametric Study&#34;, &#34;Supersonic&#34;]&#xA;thumb_color: &#34;linear-gradient(135deg, #0d1a1f, #1e4a5e 42%, #3a8fa8 78%, #7ecde8)&#34;&#xA;research_badge: true&#xA;venue: &#34;Undergraduate Research Program — Summer 2024&#34;&#xA;slug: &#34;isentropic-flow-parameter-sensitivity&#34;&#xA;aliases: [&#34;/projects/isentropic-flow-parameter-sensitivity/&#34;, &#34;/research/isentropic-flow-parameter-sensitivity-in-variable-geometry-inlets/&#34;]&#xA;links:&#xA;  - label: &#34;Project Repository&#34;&#xA;    url: &#34;https://github.com/&#34;&#xA;---&#xA;&#xA;## Abstract&#xA;&#xA;Conducted a parametric sensitivity analysis of isentropic flow parameters — total pressure recovery, Mach number distribution, and mass flow capture — across a family of variable-geometry 2D mixed-compression inlets for Mach 2.0–3.5 flight conditions. Results quantify the trade-off between cowl angle, throat area ratio, and total pressure recovery, providing design charts for inlet sizing in preliminary design phases.&#xA;&#xA;## Motivation&#xA;&#xA;Mixed-compression supersonic inlets achieve higher total pressure recovery than external-compression designs by terminating the final shock inside the inlet duct. However, they are more sensitive to off-design operation and inlet unstart. This study maps the performance landscape to guide early design decisions.&#xA;&#xA;## Methodology&#xA;&#xA;A MATLAB parametric sweep evaluated 480 inlet configurations across:&#xA;&#xA;- **Ramp angles:** θ₁ = 8–14°, θ₂ = 14–22°&#xA;- **Throat area ratio:** A_throat/A_capture = 0.60–0.85&#xA;- **Freestream Mach:** M₀ = 2.0, 2.5, 3.0, 3.5&#xA;&#xA;Total pressure recovery was computed from sequential oblique shock and normal shock relations. Boundary layer displacement thickness was estimated via the Michel criterion.&#xA;&#xA;## Key Findings&#xA;&#xA;- Maximum total pressure recovery of **η = 0.94** achieved at M₀ = 2.5 with θ₁ = 10°, θ₂ = 18°&#xA;- Recovery drops sharply below 0.85 for ramp angles exceeding 22° at M₀ ≥ 3.0 due to detached bow shock&#xA;- Throat area ratio is the dominant variable at M₀ &gt; 3.0; ramp geometry dominates at M₀ &lt; 2.5&#xA;- Design charts produced for preliminary inlet sizing across the Mach range&#xA;&#xA;## Output&#xA;&#xA;Produced a set of non-dimensional design charts mapping η vs. θ₁, θ₂, and A_ratio for each Mach number, suitable for use in early propulsion system sizing without full CFD simulation.&#xA;--&gt;</description>
+    </item>
+  </channel>
+</rss>

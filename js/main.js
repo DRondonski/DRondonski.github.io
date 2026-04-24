@@ -17,6 +17,20 @@ if (toggle && navLinks) {
     spans[0].style.transform = isOpen ? 'translateY(6.5px) rotate(45deg)' : '';
     spans[1].style.opacity = isOpen ? '0' : '';
     spans[2].style.transform = isOpen ? 'translateY(-6.5px) rotate(-45deg)' : '';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+}
+
+  // Close nav when a link is tapped
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('nav-open');
+      document.body.style.overflow = '';
+      const spans = toggle.querySelectorAll('span');
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    });
   });
 }
 

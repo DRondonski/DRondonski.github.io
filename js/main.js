@@ -19,7 +19,6 @@ if (toggle && navLinks) {
     spans[2].style.transform = isOpen ? 'translateY(-6.5px) rotate(-45deg)' : '';
     document.body.style.overflow = isOpen ? 'hidden' : '';
   });
-}
 
   // Close nav when a link is tapped
   navLinks.querySelectorAll('a').forEach(link => {

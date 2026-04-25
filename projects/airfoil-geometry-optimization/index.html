@@ -60,9 +60,32 @@
   </header>
 
   
-  <div class="article-hero-img">
+  <div class="article-hero-img" id="hero-img-block">
+    <img src="/images/research/ao.png" alt="Airfoil Geometry Optimization via Machine Learning &amp; CFD" id="hero-main-img" />
+  </div>
+
+  
+  <!-- Mini floating hero -->
+  <div class="hero-mini-wrap" id="hero-mini">
     <img src="/images/research/ao.png" alt="Airfoil Geometry Optimization via Machine Learning &amp; CFD" />
   </div>
+
+  <script>
+    (function() {
+      const heroBlock = document.getElementById('hero-img-block');
+      const miniHero = document.getElementById('hero-mini');
+      function onScroll() {
+        const rect = heroBlock.getBoundingClientRect();
+        // Show mini once the hero image has scrolled out of view
+        if (rect.bottom < 0) {
+          miniHero.classList.add('visible');
+        } else {
+          miniHero.classList.remove('visible');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+  </script>
   
 
   <div class="article-body-wrap">

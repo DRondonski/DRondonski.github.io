@@ -137,24 +137,54 @@
     <button class="lightbox-next" id="lightbox-next">›</button>
   </div>
 
+   <div class="lightbox-overlay" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <button class="lightbox-prev" id="lightbox-prev">‹</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+    <button class="lightbox-next" id="lightbox-next">›</button>
+  </div>
+  
   <script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-    function closeLightbox() {
-      lightbox.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
-    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+     (function() {
+       const lightbox = document.getElementById('lightbox');
+       const lightboxImg = document.getElementById('lightbox-img');
+       const prevBtn = document.getElementById('lightbox-prev');
+       const nextBtn = document.getElementById('lightbox-next');
+       const imgs = Array.from(document.querySelectorAll('.gallery-item img'));
+       let current = 0;
+
+       function showImage(index) {
+         current = index;
+         lightboxImg.src = imgs[current].src;
+         lightboxImg.alt = imgs[current].alt;
+         prevBtn.disabled = current === 0;
+         nextBtn.disabled = current === imgs.length - 1;
+       }
+
+       imgs.forEach((img, i) => {
+         img.addEventListener('click', () => {
+           showImage(i);
+           lightbox.classList.add('active');
+           document.body.style.overflow = 'hidden';
+         });
+       });
+
+       prevBtn.addEventListener('click', e => { e.stopPropagation(); if (current > 0) showImage(current - 1); });
+       nextBtn.addEventListener('click', e => { e.stopPropagation(); if (current < imgs.length - 1) showImage(current + 1); });
+
+       function closeLightbox() {
+         lightbox.classList.remove('active');
+         document.body.style.overflow = '';
+       }
+       document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+       lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+       document.addEventListener('keydown', e => {
+         if (!lightbox.classList.contains('active')) return;
+         if (e.key === 'Escape') closeLightbox();
+         if (e.key === 'ArrowLeft' && current > 0) showImage(current - 1);
+         if (e.key === 'ArrowRight' && current < imgs.length - 1) showImage(current + 1);
+       });
+     })();
   </script>
   
   <div class="article-links section-inner">

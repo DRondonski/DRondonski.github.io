@@ -1,1 +1,3 @@
 User-agent: *
+Allow: /
+Sitemap: https://drondonski.github.io/sitemap.xml

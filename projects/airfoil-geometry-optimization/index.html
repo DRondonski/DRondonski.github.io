@@ -49,7 +49,7 @@
       <a href="/projects/" class="back-link">← Projects</a>
       <div class="article-meta">
         <span class="article-category">Aerodynamics · ML</span>
-        <span class="article-date">February 2026 - Present</span>
+        <span class="article-date">Spring 2026 - Present</span>
       </div>
       <h1 class="article-title">Multi Objective Bayesian Optimization for Subsonic Airfoil Design</h1>
       <p class="article-subtitle">Python-based generative airfoil pipeline with ML optimization, CFD evaluation, and wind tunnel validation.</p>
@@ -103,22 +103,22 @@
     </aside>
     <div class="article-body">
       <h2 id="overview">Overview</h2>
-<p>This work is part of a <strong>VIP research program</strong> centered on airfoil geometry generation, aerodynamic performance evaluation, and iterative design improvement. My role focused heavily on the computational pipeline that turns design variables into usable geometry and downstream analysis.</p>
+<p>This work is part of a <strong>Georgia Tech VIP research program</strong> centered on airfoil geometry generation, aerodynamic performance evaluation, and iterative design improvement. I coordinate the Python/ML optimization, CFD, and wind-tunnel workstreams while leading the Python team developing the master geometry-generation pipeline.</p>
 <h2 id="motivation">Motivation</h2>
 <p>Airfoil design often becomes slow when geometry creation, analysis, and comparison are disconnected. A workflow that links those steps makes it possible to evaluate more ideas, learn faster, and iterate with better structure.</p>
 <h2 id="my-engineering-contribution">My Engineering Contribution</h2>
 <p>I led development on the Python side of the workflow, helping create a system that:</p>
 <ul>
-<li>Accepts a compact set of <strong>NACA-style input parameters</strong></li>
+<li>Accepts the four digits that define a <strong>NACA four-digit airfoil</strong></li>
 <li>Generates the corresponding airfoil profile automatically</li>
-<li>Produces geometry suitable for downstream simulation or fabrication</li>
+<li>Converts the generated profile to STL geometry for CFD analysis</li>
 <li>Supports rapid iteration for optimization and comparison studies</li>
 </ul>
 <h2 id="my-management-contribution">My Management Contribution</h2>
-<p>I led the whole team acting as <strong>Project Manager</strong> making sure that deadlines were being met and we were meeting the timelines set for us by:</p>
+<p>I coordinate the connected research workstreams and keep the team aligned to milestones by:</p>
 <ul>
-<li>Using a Gantt Chart through <strong>Excel</strong> to track progress and upcoming steps that needed to be completed</li>
-<li>Reaching out to my team members through <strong>Microsoft Teams</strong></li>
+<li>Using an Excel Gantt chart to track progress, dependencies, and upcoming deliverables</li>
+<li>Coordinating team communication and follow-through through Microsoft Teams</li>
 </ul>
 <h2 id="research-structure">Research Structure</h2>
 <p>The broader research effort combined four connected parts:</p>
@@ -129,7 +129,7 @@
 <li>Wind tunnel testing for physical validation</li>
 </ul>
 <h2 id="outcome">Outcome</h2>
-<p>This is ongoing research that is hitting multiple fields and many duties having to be fulfilled all at once. This research will be completed by the fall of 2026, published, and possibly going to another research conference to present our optimizer to an aerospace focused community.</p>
+<p>This ongoing research brings geometry generation, optimization, CFD, and physical validation into one repeatable workflow. The immediate outcome is a master codebase that can turn compact airfoil inputs into simulation-ready geometry while supporting faster, more structured design iteration.</p>
 
     </div>
   </div>
@@ -139,28 +139,21 @@
     <p class="section-label">Gallery</p>
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="/images/research/ao1.png" alt="Ice accretion simulation result" />
+        <img src="/images/research/ao1.png" alt="Airfoil optimization workflow result" />
       </div>
       <div class="gallery-item">
-        <img src="/images/research/ao2.png" alt="Design photo" />
+        <img src="/images/research/ao2.png" alt="Generated airfoil geometry and analysis" />
       </div>
     </div>
   </div> 
 
   <div class="lightbox-overlay" id="lightbox">
-    <button class="lightbox-close" id="lightbox-close">✕</button>
-    <button class="lightbox-prev" id="lightbox-prev">‹</button>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close image gallery">✕</button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous image">‹</button>
     <img class="lightbox-img" id="lightbox-img" src="" alt="" />
-    <button class="lightbox-next" id="lightbox-next">›</button>
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next image">›</button>
   </div>
 
-  <div class="lightbox-overlay" id="lightbox">
-    <button class="lightbox-close" id="lightbox-close">✕</button>
-    <button class="lightbox-prev" id="lightbox-prev">‹</button>
-    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
-    <button class="lightbox-next" id="lightbox-next">›</button>
-  </div>
-  
   <script>
      (function() {
        const lightbox = document.getElementById('lightbox');
@@ -208,7 +201,7 @@
     <p class="section-label">Links</p>
     <div class="link-list">
       
-      <a href="https://github.com/" class="ext-link" target="_blank" rel="noopener">Project Repository ↗</a>
+      <a href="https://github.com/DRondonski" class="ext-link" target="_blank" rel="noopener">GitHub Profile ↗</a>
       
     </div>
   </div>
@@ -238,7 +231,7 @@
     </div>
     <div class="footer-links">
       <a href="https://www.linkedin.com/in/david-rondon-08573b288" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://github.com/DRondonski" target="_blank" rel="noopener">GitHub ↗</a>
       <a href="mailto:drondonski@gmail.com">Email</a>
     </div>
     <p class="footer-copy">© 2026 David Rondon</p>

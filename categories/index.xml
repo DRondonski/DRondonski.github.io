@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on David Rondon</title>
-    <link>https://davidbrondon.com/categories/</link>
+    <link>https://drondonski.github.io/categories/</link>
     <description>Recent content in Categories on David Rondon</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://davidbrondon.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://drondonski.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

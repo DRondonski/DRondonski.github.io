@@ -873,6 +873,88 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   font-weight: 400;
 }
 
+.result-callout {
+  margin: 1.75rem 0 2rem;
+  padding: 1.25rem 1.4rem;
+  border: 1px solid var(--border-md);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-lg);
+  background: var(--bg-2);
+}
+.result-callout--failed {
+  border-left-color: #d4755d;
+  background: linear-gradient(135deg, rgba(212,117,93,0.10), var(--bg-2) 52%);
+}
+.result-callout p { margin-bottom: 0; }
+.result-callout-label {
+  margin-bottom: 0.45rem !important;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e39a87;
+}
+
+.simulation-results {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid var(--border);
+}
+.simulation-results-title {
+  font-size: clamp(1.65rem, 3vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+.simulation-results-intro {
+  max-width: 720px;
+  margin: 0.75rem 0 1.5rem;
+  color: var(--text-2);
+}
+.simulation-results-intro code {
+  font-family: var(--font-mono);
+  color: var(--accent-2);
+}
+.simulation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+.simulation-card {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-2);
+}
+.simulation-card-heading {
+  padding: 1rem 1.1rem 0.9rem;
+}
+.simulation-field {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.simulation-card h3 {
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+.simulation-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+}
+.simulation-card figcaption {
+  min-height: 5.4rem;
+  padding: 0.95rem 1.1rem 1.1rem;
+  color: var(--text-2);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
 /* ARTICLE NAV */
 .article-links { padding: 2rem var(--pad); border-top: 1px solid var(--border); }
 .link-list { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.75rem; }
@@ -1226,6 +1308,9 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 
   .research-item a { grid-template-columns: 34px 1fr auto; gap: 0.8rem; padding: 1rem; }
   .ri-title { font-size: 0.98rem; }
+
+  .simulation-grid { grid-template-columns: 1fr; }
+  .simulation-card figcaption { min-height: 0; }
 
   .visual-frame { width: 260px; height: 260px; }
   .ring-1 { width: 220px; height: 220px; }

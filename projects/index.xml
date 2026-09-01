@@ -5,7 +5,7 @@
     <link>https://drondonski.github.io/projects/</link>
     <description>Engineering research and projects by David Rondon</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://drondonski.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Airfoil Geometry Optimization via Machine Learning &amp; CFD</title>
@@ -22,11 +22,11 @@
       <description>NACA 0012 ice-accretion research presented at GURC and the 2026 AIAA Region II Student Conference.</description>
     </item>
     <item>
-      <title>Novel Rocket Nozzle Design</title>
+      <title>Three-Lobed Rocket Nozzle — First CFD Iteration</title>
       <link>https://drondonski.github.io/projects/novel-rocket-nozzle-design/</link>
-      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://drondonski.github.io/projects/novel-rocket-nozzle-design/</guid>
-      <description>Three-lobed rocket nozzle geometry developed in FreeCAD and evaluated with OpenFOAM and ParaView.</description>
+      <description>A rhoCentralFoam iteration whose Mach and pressure fields follow the expected inverse trend but fail to establish choked flow.</description>
     </item>
     <item>
       <title>Design Class Competition Winner</title>

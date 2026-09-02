@@ -109,20 +109,23 @@ body {
   letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--text-muted); margin-bottom: 1.2rem;
 }
-.eyebrow-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent);
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse {
-  0%,100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
-}
 .hero-name {
   font-family: var(--font-display); font-weight: 800;
   font-size: clamp(3rem, 6vw, 5rem);
   line-height: 1.05; letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
+}
+.hero-project-title {
+  max-width: 650px;
+  font-size: clamp(2.65rem, 5vw, 4.6rem);
+}
+.hero-byline {
+  margin-bottom: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 .name-first { display: block; }
 .name-last { display: block; color: var(--accent); }
@@ -240,6 +243,47 @@ body {
 .vs-1 { top: 20%; right: -3rem; text-align: right; }
 .vs-2 { bottom: 20%; right: -3rem; text-align: right; }
 .vs-3 { bottom: 20%; left: -3.5rem; }
+.featured-nozzle-frame {
+  width: 210px;
+  height: 210px;
+  border: 0;
+  border-radius: 22px;
+  background: #625e5a;
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.55);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.featured-nozzle-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 72px rgba(0,0,0,0.65);
+}
+.featured-nozzle-frame .visual-ring {
+  z-index: -1;
+}
+.featured-nozzle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1px solid rgba(200,169,110,0.4);
+  border-radius: 22px;
+}
+.featured-nozzle-label {
+  position: absolute;
+  left: 50%;
+  bottom: -2.2rem;
+  transform: translateX(-50%);
+  width: max-content;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: rgba(10,10,10,0.9);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
 .hero-scroll-hint {
   position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
@@ -285,6 +329,84 @@ body {
   transition: opacity 0.2s;
 }
 .section-link:hover { opacity: 0.7; }
+
+/* ============================================================
+   NOZZLE PROGRESS
+   ============================================================ */
+.section-nozzle-progress {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(200,169,110,0.06), var(--surface) 55%);
+}
+.nozzle-progress-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
+  gap: 3rem;
+  align-items: center;
+}
+.nozzle-progress-copy h2 {
+  max-width: 520px;
+  margin-bottom: 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.15;
+}
+.nozzle-progress-copy p:not(.section-label) {
+  max-width: 560px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+.nozzle-progress-track {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0.8rem;
+  align-items: stretch;
+}
+.home-progress-step {
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+}
+.home-progress-step span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #e39a87;
+}
+.home-progress-step strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-display);
+}
+.home-progress-step p {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  line-height: 1.55;
+}
+.home-progress-step--working {
+  border-color: rgba(113,185,149,0.42);
+  background: rgba(113,185,149,0.07);
+}
+.home-progress-step--working span { color: #8fd2ae; }
+.home-progress-arrow {
+  align-self: center;
+  color: var(--accent);
+}
+.nozzle-progress-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-decoration: none;
+}
 
 /* ============================================================
    EXPERIENCE SECTION
@@ -375,6 +497,13 @@ body {
 .thumb-fill {
   position: absolute; inset: 0;
   background: var(--thumb-color, var(--surface2));
+}
+.card-thumb-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .thumb-overlay {
   position: absolute; inset: 0;
@@ -502,7 +631,9 @@ body {
    ============================================================ */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { display: none; }
+  .hero-visual { display: flex; margin-top: 0.5rem; }
+  .hero-scroll-hint { display: none; }
+  .nozzle-progress-inner { grid-template-columns: 1fr; gap: 2rem; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card--featured { grid-column: span 1; }
   .about-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -513,6 +644,8 @@ body {
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .solar-scene { width: 300px; height: 300px; }
+  .nozzle-progress-track { grid-template-columns: 1fr; }
+  .home-progress-arrow { justify-self: center; transform: rotate(90deg); }
   .orbit { width: 270px; height: 270px; margin-top: -135px; margin-left: -135px; }
 }
 </style>
@@ -541,25 +674,24 @@ body {
   <div class="hero-inner">
     <div class="hero-content">
       <p class="hero-eyebrow">
-        <span class="eyebrow-dot"></span>
-        Mechanical Engineering · Biology Minor
+        Featured Engineering Project
       </p>
-      <h1 class="hero-name">
-        <span class="name-first">David</span>
-        <span class="name-last">Rondon</span>
+      <p class="hero-byline">David Rondon · Mechanical Engineering</p>
+      <h1 class="hero-name hero-project-title">
+        <span class="name-first">Working Three Lobed</span>
+        <span class="name-last">Rocket Nozzle</span>
       </h1>
-      <p class="hero-desc">Georgia Tech mechanical engineering student combining propulsion and CFD research with structural design, engineering operations, and technical AI experience.</p>
+      <p class="hero-desc">My most technical project to date: a complete <code>rhoCentralFoam</code> development cycle from a failed first model to a choked throat and a resolved Mach 3.52 exit core. The next challenge is using more of the lobed exit at high speed.</p>
       <div class="hero-tags">
-        <span class="htag">Rocket Propulsion</span>
-        <span class="htag">CFD / OpenFOAM</span>
-        <span class="htag">Nozzle Design</span>
-        <span class="htag">Structural Engineering</span>
-        <span class="htag">Engineering Management</span>
-        <span class="htag">Python · Revit · SolidWorks</span>
+        <span class="htag">Mach 1 Throat</span>
+        <span class="htag">Mach 3.52 Exit Core</span>
+        <span class="htag">rhoCentralFoam</span>
+        <span class="htag">OpenFOAM</span>
+        <span class="htag">Approximately 212,000 Cells</span>
       </div>
       <div class="hero-actions">
-        <a href="#projects" class="btn-primary">View Projects →</a>
-        <a href="#experience" class="btn-ghost">Experience</a>
+        <a href="/projects/novel-rocket-nozzle-design/" class="btn-primary">Explore the Nozzle →</a>
+        <a href="#projects" class="btn-ghost">All Projects</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -574,24 +706,43 @@ body {
         <div class="orbit" style="--start:252deg"><div class="planet planet-uranus"></div><div class="planet-label">Uranus</div></div>
         <div class="orbit" style="--start:288deg"><div class="planet planet-neptune"></div><div class="planet-label">Neptune</div></div>
         <div class="orbit" style="--start:324deg"><div class="planet planet-pluto"></div><div class="planet-label">Pluto</div></div>
-        <div class="visual-frame">
+        <a href="/projects/novel-rocket-nozzle-design/" class="visual-frame featured-nozzle-frame" aria-label="Open the three lobed rocket nozzle development project">
           <div class="visual-ring ring-1"></div>
           <div class="visual-ring ring-2"></div>
           <div class="visual-ring ring-3"></div>
-          <div class="visual-center">
-            <span class="vc-label">M∞</span>
-            <span class="vc-val">2.4</span>
-          </div>
-          <div class="visual-stat vs-1"><span>Re</span><strong>4.2×10⁶</strong></div>
-          <div class="visual-stat vs-2"><span>Isp</span><strong>312 s</strong></div>
-          <div class="visual-stat vs-3"><span>Pc</span><strong>500 psi</strong></div>
-        </div>
+          <img class="featured-nozzle-image" src="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-2-mass-flux.png" alt="Mass flux across the three lobed nozzle exit" />
+          <span class="featured-nozzle-label">Working CFD Result · Test 2</span>
+        </a>
       </div>
     </div>
   </div>
   <div class="hero-scroll-hint">
     <span>Scroll</span>
     <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section class="section-nozzle-progress" aria-labelledby="nozzle-progress-title">
+  <div class="nozzle-progress-inner">
+    <div class="nozzle-progress-copy">
+      <p class="section-label">Development Progress</p>
+      <h2 id="nozzle-progress-title">From failed throat to supersonic exit</h2>
+      <p>The first model accelerated the flow but never choked. The second reaches Mach 1 at the throat and Mach 3 plus at the exit. Now I am optimizing the geometry so more of the three lobed exit carries useful high speed flow.</p>
+      <a class="nozzle-progress-link" href="/projects/novel-rocket-nozzle-design/">See the complete development →</a>
+    </div>
+    <div class="nozzle-progress-track">
+      <div class="home-progress-step">
+        <span>Test 1</span>
+        <strong>Failed model</strong>
+        <p>Approached Mach 1, then decelerated through the expansion.</p>
+      </div>
+      <span class="home-progress-arrow" aria-hidden="true">→</span>
+      <div class="home-progress-step home-progress-step--working">
+        <span>Test 2</span>
+        <strong>Working milestone</strong>
+        <p>Choked throat, Mach 3.52 exit core, with exit utilization still to optimize.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -618,7 +769,7 @@ body {
         <div class="exp-body">
           <h3 class="exp-role">Area Maintenance Manager Intern</h3>
           <ul class="exp-bullets">
-            <li>Managed people and projects within site maintenance operations, performed audits, and maintained site-wide data in internal software.</li>
+            <li>Managed people and projects within site maintenance operations, performed audits, and maintained site wide data in internal software.</li>
             <li>Supported preparation for an upcoming technical change while gaining firsthand insight into designing equipment for maintainability.</li>
           </ul>
           <div class="exp-skills">
@@ -633,12 +784,12 @@ body {
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-period">Spring 2026 – Present</p>
+          <p class="exp-period">Spring 2026 to Present</p>
           <p class="exp-company">Handshake AI Fellowship</p>
           <p class="exp-location">Architecture · Engineering · Construction</p>
         </div>
         <div class="exp-body">
-          <h3 class="exp-role">AI Trainer — AEC Expert</h3>
+          <h3 class="exp-role">AI Trainer, AEC Expert</h3>
           <ul class="exp-bullets">
             <li>Review complex architecture, engineering, and construction model outputs and provide expert feedback to improve technical AI understanding.</li>
           </ul>
@@ -661,9 +812,9 @@ body {
           <h3 class="exp-role">Engineering Intern</h3>
           <ul class="exp-bullets">
             <li>Designed structural columns, beams, and framing systems for commercial and institutional building projects, applying principles of statics and strength of materials to real construction documents.</li>
-            <li>Developed concrete foundation systems including reinforcement layout and connection detailing, ensuring code-compliant designs under the guidance of licensed PEs.</li>
+            <li>Developed concrete foundation systems including reinforcement layout and connection detailing, ensuring code compliant designs under the guidance of licensed PEs.</li>
             <li>Built parametric Revit families from scratch, streamlining design iteration and improving documentation accuracy across project teams.</li>
-            <li>Served as lead engineer on the Tri-County Technical College renovation (SC) and contributed to the Meta Bridges project (AL), managing structural documentation from schematic through construction drawing phases.</li>
+            <li>Served as lead engineer on the Tri County Technical College renovation in South Carolina and contributed to the Meta Bridges project in Alabama, managing structural documentation from schematic through construction drawing phases.</li>
           </ul>
           <div class="exp-skills">
             <span class="exp-skill">Revit</span>
@@ -685,9 +836,9 @@ body {
         <div class="exp-body">
           <h3 class="exp-role">Engineering Intern</h3>
           <ul class="exp-bullets">
-            <li>Developed proficiency in Revit for structural coordination, producing and managing construction documentation in a collaborative, multi-discipline BIM environment.</li>
-            <li>Contributed to two large-scale industrial projects: a Lego Manufacturing Plant (VA) and the Arglass facility (GA), gaining exposure to industrial-scale structural and MEP systems.</li>
-            <li>Collaborated cross-functionally with architects, MEP engineers, and project managers — building skills in design coordination, redline review, and project communication.</li>
+            <li>Developed proficiency in Revit for structural coordination, producing and managing construction documentation in a collaborative, multidisciplinary BIM environment.</li>
+            <li>Contributed to two large industrial projects: a Lego Manufacturing Plant in Virginia and the Arglass facility in Georgia, gaining exposure to industrial structural and MEP systems.</li>
+            <li>Collaborated across functions with architects, MEP engineers, and project managers, building skills in design coordination, redline review, and project communication.</li>
           </ul>
           <div class="exp-skills">
             <span class="exp-skill">Revit</span>
@@ -700,7 +851,7 @@ body {
 
       <div class="exp-item">
         <div class="exp-meta">
-          <p class="exp-period">Spring 2024 – Spring 2026</p>
+          <p class="exp-period">Spring 2024 to Spring 2026</p>
           <p class="exp-company">Papa Johns</p>
           <p class="exp-location">Project Manager</p>
         </div>
@@ -708,8 +859,8 @@ body {
           <h3 class="exp-role">Manager</h3>
           <ul class="exp-bullets">
             <li>Managed daily store operations while maintaining a full engineering course load, demonstrating exceptional time management and work ethic.</li>
-            <li>Led and supervised teams during peak-volume shifts, coordinating task delegation and maintaining quality standards under pressure.</li>
-            <li>Developed strong operational and people-management skills directly applicable to team leadership in engineering environments.</li>
+            <li>Led and supervised teams during peak volume shifts, coordinating task delegation and maintaining quality standards under pressure.</li>
+            <li>Developed strong operational and people management skills directly applicable to team leadership in engineering environments.</li>
           </ul>
           <div class="exp-skills">
             <span class="exp-skill">Team Leadership</span>
@@ -740,14 +891,14 @@ body {
       <article class="project-card project-card--featured">
         <a href="/projects/novel-rocket-nozzle-design/" class="card-link">
           <div class="card-thumb">
-            <div class="thumb-fill" style="--thumb-color: linear-gradient(135deg, #2f180d, #6d3a20 42%, #c8874b 78%, #f0cb97);"></div>
+            <img class="card-thumb-image" src="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-2-mass-flux.png" alt="" />
             <div class="thumb-overlay"></div>
             <span class="card-category">Propulsion · CFD</span>
-            <span class="card-research-badge">Iteration Log</span>
+            <span class="card-research-badge">Working CFD</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title">Three-Lobed Rocket Nozzle — First CFD Iteration</h3>
-            <p class="card-desc">A transparent rhoCentralFoam result: Mach rises as static pressure falls, but the flow stays subsonic and decelerates after the constriction. The failed model now drives a tighter throat redesign.</p>
+            <h3 class="card-title">Three Lobed Rocket Nozzle Development</h3>
+            <p class="card-desc">A complete progression from a failed first model to a choked throat and Mach 3.52 resolved exit core. The next design cycle targets more uniform high speed flow across the full lobed exit.</p>
             <div class="card-tags">
               <span class="ctag">rhoCentralFoam</span><span class="ctag">OpenFOAM</span><span class="ctag">ParaView</span><span class="ctag">Propulsion</span><span class="ctag">Design Iteration</span>
             </div>
@@ -764,8 +915,8 @@ body {
             <span class="card-research-badge">Research</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title">Ice Accretion Research — LEWICE / OpenFOAM (VIP)</h3>
-            <p class="card-desc">Led NASA LEWICE workflow integration on macOS and supported OpenFOAM, ParaView, and data-analysis workflows. Presented the team’s NACA 0012 research at GURC and the 2026 AIAA Region II Conference and contributed to the published conference paper.</p>
+            <h3 class="card-title">Ice Accretion Research with LEWICE and OpenFOAM</h3>
+            <p class="card-desc">Led NASA LEWICE workflow integration on macOS and supported OpenFOAM, ParaView, and data analysis workflows. Presented the team’s NACA 0012 research at GURC and the 2026 AIAA Region II Conference and contributed to the published conference paper.</p>
             <div class="card-tags">
               <span class="ctag">OpenFOAM</span><span class="ctag">LEWICE</span><span class="ctag">ParaView</span><span class="ctag">Blender</span><span class="ctag">AIAA Publication</span>
             </div>
@@ -782,9 +933,9 @@ body {
             <span class="card-research-badge">Research</span>
           </div>
           <div class="card-body">
-            <p class="card-venue">VIP Program — Georgia Tech · Spring 2026 – Present</p>
+            <p class="card-venue">VIP Program at Georgia Tech · Spring 2026 to Present</p>
             <h3 class="card-title">Airfoil Geometry Optimization via Machine Learning & CFD</h3>
-            <p class="card-desc">Coordinate the Python/ML optimization, CFD, and wind-tunnel workstreams while leading the Python team developing a master pipeline that generates NACA airfoils from four-digit inputs and exports STL geometry for CFD.</p>
+            <p class="card-desc">Coordinate the Python and ML optimization, CFD, and wind tunnel workstreams while leading the Python team developing a master pipeline that generates NACA airfoils from four digit inputs and exports STL geometry for CFD.</p>
             <div class="card-tags">
               <span class="ctag">Python</span><span class="ctag">CFD</span><span class="ctag">Machine Learning</span><span class="ctag">OpenFOAM</span>
             </div>
@@ -801,8 +952,8 @@ body {
             <span class="card-research-badge">Project</span>
           </div>
           <div class="card-body">
-            <h3 class="card-title">Design Class Competition — Winner</h3>
-            <p class="card-desc">Won the class design competition by building a functional machine under tight resource and time constraints. Full design-to-fabrication cycle using SolidWorks modeling, laser-cut components via Inkscape, version-controlled with GitHub, and assembled with soldering and hands-on fabrication.</p>
+            <h3 class="card-title">Design Class Competition Winner</h3>
+            <p class="card-desc">Won the class design competition by building a functional machine under tight resource and time constraints. Completed the full design and fabrication cycle using SolidWorks modeling, laser cut components via Inkscape, GitHub version control, soldering, and practical fabrication.</p>
             <div class="card-tags">
               <span class="ctag">SolidWorks</span><span class="ctag">Inkscape</span><span class="ctag">GitHub</span><span class="ctag">Fabrication</span><span class="ctag">Soldering</span>
             </div>
@@ -823,7 +974,7 @@ body {
       <div class="about-text">
         <p class="section-label">Background</p>
         <h2 class="section-title">Engineering across<br>simulation, design &amp; the field.</h2>
-        <p class="about-body">I'm a Georgia Tech mechanical engineering student and HOPE/Zell Miller Scholar with a Biology minor. My work spans propulsion design, published CFD research, airfoil-optimization leadership, structural project delivery, Amazon maintenance operations, and expert review for technical AI. I connect OpenFOAM, LEWICE, Python, and CAD workflows with the people leadership and operational discipline needed to move complex engineering work forward.</p>
+        <p class="about-body">I'm a Georgia Tech mechanical engineering student and HOPE/Zell Miller Scholar with a Biology minor. My work spans propulsion design, published CFD research, airfoil optimization leadership, structural project delivery, Amazon maintenance operations, and expert review for technical AI. I connect OpenFOAM, LEWICE, Python, and CAD workflows with the people leadership and operational discipline needed to move complex engineering work forward.</p>
         <a href="https://www.linkedin.com/in/david-rondon-08573b288" class="btn-primary" target="_blank" rel="noopener">Connect on LinkedIn →</a>
       </div>
       <div class="about-skills">

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Three-Lobed Rocket Nozzle CFD Iteration · David Rondon</title>
-  <meta name="description" content="A transparent rhoCentralFoam study of a three-lobed rocket nozzle whose first CFD iteration accelerated the flow but failed to establish choking." />
+  <title>Three Lobed Rocket Nozzle Development · David Rondon</title>
+  <meta name="description" content="The development of a three lobed rocket nozzle from a failed first CFD model to a working choked solution with a resolved exit core above Mach 3." />
   <meta name="keywords" content="rocket propulsion, CFD, OpenFOAM, aerospace engineering, nozzle design" />
-  <meta property="og:title" content="Three-Lobed Rocket Nozzle CFD Iteration" />
-  <meta property="og:description" content="A transparent rhoCentralFoam study of a three-lobed rocket nozzle whose first CFD iteration accelerated the flow but failed to establish choking." />
+  <meta property="og:title" content="Three Lobed Rocket Nozzle Development" />
+  <meta property="og:description" content="From a failed first model to a working choked solution with a resolved exit core above Mach 3, plus the optimization work still ahead." />
   <meta name="theme-color" content="#0a0a0a" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -51,21 +51,23 @@
         <span class="article-category">Propulsion · CFD</span>
         <span class="article-date">Updated September 2026</span>
       </div>
-      <h1 class="article-title">Three-Lobed Rocket Nozzle — First CFD Iteration</h1>
-      <p class="article-subtitle">A three-leaf-clover nozzle study that produced the correct inverse pressure/Mach pattern, but did not choke the flow.</p>
+      <h1 class="article-title">Three Lobed Rocket Nozzle Development</h1>
+      <p class="article-subtitle">A documented progression from a failed first geometry to a working choked flow solution, followed by the next challenge: using more of the lobed exit effectively.</p>
       <div class="article-tags">
-        <span class="ctag">Propulsion</span><span class="ctag">Nozzle Design</span><span class="ctag">rhoCentralFoam</span><span class="ctag">OpenFOAM v2412</span><span class="ctag">ParaView</span><span class="ctag">Failed Iteration</span>
+        <span class="ctag">Propulsion</span><span class="ctag">Nozzle Design</span><span class="ctag">rhoCentralFoam</span><span class="ctag">OpenFOAM</span><span class="ctag">ParaView</span><span class="ctag">Working CFD Model</span>
       </div>
     </div>
   </header>
 
-  <div class="article-hero-img" id="hero-img-block">
-    <img src="/images/projects/NRN.png" alt="Novel Rocket Nozzle Design" id="hero-main-img" />
+  <div class="article-hero-img article-hero-img--nozzle-model" id="hero-img-block">
+    <div class="nozzle-model-stage">
+      <img src="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-model-2.png" alt="Three lobed rocket nozzle second design model" id="hero-main-img" />
+    </div>
   </div>
 
   <!-- Mini floating hero -->
-  <div class="hero-mini-wrap" id="hero-mini">
-    <img src="/images/projects/NRN.png" alt="Novel Rocket Nozzle Design" />
+  <div class="hero-mini-wrap hero-mini-wrap--nozzle" id="hero-mini">
+    <img src="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-model-2.png" alt="Three lobed rocket nozzle second design model" />
   </div>
 
   <script>
@@ -90,100 +92,168 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#overview">Overview</a></li>
-    <li><a href="#baseline-case">Baseline Case</a></li>
-    <li><a href="#mach-and-pressure">Mach and Pressure</a></li>
-    <li><a href="#failed-result">Why It Failed</a></li>
-    <li><a href="#next-iteration">Next Iteration</a></li>
+    <li><a href="#development-progress">Development Progress</a></li>
+    <li><a href="#test-one">Test 1</a></li>
+    <li><a href="#test-two">Test 2</a></li>
+    <li><a href="#what-works">What Works</a></li>
+    <li><a href="#next-steps">Next Steps</a></li>
   </ul>
 </nav>
     </aside>
     <div class="article-body">
       <h2 id="overview">Overview</h2>
-<p>I designed this <strong>three-leaf-clover rocket nozzle</strong> in FreeCAD, converted the geometry to a closed STL, meshed the internal passage, and ran a compressible OpenFOAM case for inspection in ParaView. This page documents the first full CFD iteration honestly: it produced a recognizable converging–diverging response, but it did <strong>not</strong> establish the intended choked, supersonic solution.</p>
+<p>This is the most technically demanding project I have completed so far. I designed a complete <strong>three lobed rocket nozzle passage</strong>, prepared the geometry for computational fluid dynamics, built compressible OpenFOAM cases, and evaluated the results in ParaView. The first design did not choke. The second established a sonic throat and accelerated the resolved exit core above Mach 3.</p>
 
-<div class="result-callout result-callout--failed">
-  <p class="result-callout-label">Iteration status</p>
-  <p><strong>Failed model:</strong> the flow accelerates toward the constriction, approaches Mach 1, and then decelerates. Because the throat never establishes a sustained sonic condition, this geometry is not a successful rocket-nozzle solution.</p>
+<div class="result-callout result-callout--working">
+  <p class="result-callout-label">Current status</p>
+  <p><strong>Working CFD milestone:</strong> Test 2 reaches Mach 1 at the throat and approximately Mach 3.52 in the resolved exit core. The remaining problem is exit utilization. Much of the three lobed exit still carries slower flow, so the geometry now needs to be optimized for a broader high speed region.</p>
 </div>
 
-<h2 id="baseline-case">Baseline Case</h2>
-<p>The animation comes from the actual internal-flow case used for this geometry—not an idealized circular substitute. The mesh retains all three lobes; equivalent diameters below are included only to make the section sizes easier to interpret.</p>
+<h2 id="development-progress">Development Progress</h2>
+<div class="development-progress" aria-label="Nozzle development from Test 1 to Test 2">
+  <div class="progress-step progress-step--failed">
+    <span>Test 1</span>
+    <strong>Did not choke</strong>
+    <p>Mach approached 1 near the constriction, then fell through the expansion.</p>
+  </div>
+  <span class="progress-arrow" aria-hidden="true">→</span>
+  <div class="progress-step progress-step--working">
+    <span>Test 2</span>
+    <strong>Choked and supersonic</strong>
+    <p>The throat reaches Mach 1 and the resolved exit core reaches approximately Mach 3.52.</p>
+  </div>
+</div>
+<p>The two models turn a failed result into a clear design narrative. Test 1 identified the throat as the limiting feature. Tightening the passage in Test 2 created the intended sonic condition and allowed continued acceleration through the diverging section.</p>
+
+<h2 id="test-one">Test 1: Failed Choking Attempt</h2>
+<p>The first case used the actual internal passage with all three lobes. It produced the correct qualitative relationship between pressure and speed, but the geometry did not sustain sonic flow at the throat.</p>
 <table>
   <tbody>
-    <tr><th scope="row">Solver</th><td>OpenFOAM v2412 · <code>rhoCentralFoam</code> · Kurganov central-upwind flux</td></tr>
+    <tr><th scope="row">Solver</th><td>OpenFOAM v2412 · <code>rhoCentralFoam</code> · Kurganov central upwind flux</td></tr>
     <tr><th scope="row">Gas model</th><td>Inviscid, calorically perfect gas · \(\gamma = 1.22\)</td></tr>
     <tr><th scope="row">Chamber state</th><td>Total pressure \(p_0 = 7.0\ \text{MPa}\) · total temperature \(T_0 = 3400\ \text{K}\)</td></tr>
-    <tr><th scope="row">Outlet reference</th><td>1,000 Pa transmissive back-pressure condition</td></tr>
+    <tr><th scope="row">Outlet reference</th><td>1,000 Pa transmissive back pressure condition</td></tr>
     <tr><th scope="row">Inlet section</th><td>1.167327 m² · 1.219 m equivalent diameter</td></tr>
     <tr><th scope="row">Throat</th><td>0.653080 m² at \(y \approx 0.6683\ \text{m}\) · 0.912 m equivalent diameter</td></tr>
     <tr><th scope="row">Exit</th><td>3.300132 m² · 2.050 m equivalent diameter</td></tr>
     <tr><th scope="row">Geometry</th><td>\(A_e/A_t = 5.05318\) · 1.8288 m axial length</td></tr>
-    <tr><th scope="row">Numerics</th><td>109,715-cell mesh · initial \(\Delta t = 2\times10^{-8}\ \text{s}\) · maximum Courant number 0.2</td></tr>
-    <tr><th scope="row">Recorded result</th><td>0–2 ms startup transient · 40 ParaView frames at 5 fps · not a converged performance run</td></tr>
+    <tr><th scope="row">Numerics</th><td>109,715 cell mesh · initial \(\Delta t = 2\times10^{-8}\ \text{s}\) · maximum Courant number 0.2</td></tr>
+    <tr><th scope="row">Recorded result</th><td>0 to 2 ms startup transient · 40 ParaView frames at 5 fps · not a converged performance run</td></tr>
   </tbody>
 </table>
+<p>The flow accelerated toward the constriction and static pressure dropped in the same region. Mach and pressure therefore moved in opposite directions as expected. However, Mach stayed below 1 and then decreased again. I treated the geometry as a <strong>failed model</strong> rather than presenting the visual trend as a successful nozzle result.</p>
 
-<h2 id="mach-and-pressure">Mach and Pressure</h2>
-<p>The two animations below show different variables and are labeled explicitly:</p>
+<h2 id="test-two">Test 2: Working Choked Solution</h2>
+<p>The second design uses hot LOX and RP1 combustion products in the complete three lobed passage. Flow travels from the circular chamber on the right toward the lobed exit on the left.</p>
+<table>
+  <tbody>
+    <tr><th scope="row">Solver</th><td><code>rhoCentralFoam</code> compressible flow case</td></tr>
+    <tr><th scope="row">Chamber condition</th><td>27.57 MPa total pressure · 3760 K total temperature</td></tr>
+    <tr><th scope="row">Gas properties</th><td>Molecular weight 24.945 kg per kmol · \(\gamma = 1.1386\)</td></tr>
+    <tr><th scope="row">Mass flow target</th><td>Approximately 703 kg per second per engine</td></tr>
+    <tr><th scope="row">Geometry</th><td>Expansion ratio approximately 39.96 · total passage length 3.375 m</td></tr>
+    <tr><th scope="row">Mesh</th><td>Approximately 212,000 cells</td></tr>
+    <tr><th scope="row">Sonic crossing</th><td>Mach 1.00 at approximately 1.12 m downstream of the chamber reference</td></tr>
+    <tr><th scope="row">Resolved exit core</th><td>Mach 3.52 · approximately 149 kPa · approximately 3065 m per second</td></tr>
+    <tr><th scope="row">Preliminary axial thrust</th><td>2.205 MN per engine, within 3.1 percent of a 2.275 MN independent estimate</td></tr>
+  </tbody>
+</table>
+<p>The animation scale includes an isolated peak near Mach 6.32 at an exit edge cut cell. I do not use that local artifact as a physical performance claim. The resolved centerline result of approximately Mach 3.52 is the meaningful exit value.</p>
+
+<h2 id="what-works">What Works Now</h2>
 <ul>
-  <li><strong>Mach animation — <code>Ma</code>:</strong> dimensionless Mach number. Flow moves from the chamber on the right toward the exit on the left. Mach increases toward the narrow central region.</li>
-  <li><strong>Pressure animation — <code>p</code>:</strong> static pressure in pascals. Pressure decreases across the same regions where Mach increases.</li>
+  <li><strong>The throat chokes the flow.</strong> Mach crosses 1 near the intended minimum area.</li>
+  <li><strong>The diverging passage accelerates the core.</strong> The resolved core continues beyond Mach 2 and reaches approximately Mach 3.52 at the exit.</li>
+  <li><strong>Mach and pressure agree physically.</strong> Static pressure falls through the same regions where Mach rises.</li>
+  <li><strong>The preliminary force direction is stable.</strong> Lateral force remains below 1 percent of axial force in the available result.</li>
 </ul>
-<p>That inverse response is the correct qualitative pattern for accelerating compressible flow: <strong>Mach rises while static pressure falls</strong>. The pressure and Mach fields therefore agree with one another at the trend level.</p>
+<p>This is a working computational milestone, not a final performance prediction. The current inlet and exit flow imbalance is approximately 12.3 percent, so further convergence and verification are required before treating the thrust estimate as final.</p>
 
-<h2 id="failed-result">Why This Iteration Failed</h2>
-<p>The correct inverse pattern is not enough to make the nozzle successful. The final internal slice shows the central high-speed region remaining roughly around \(M \approx 0.8\text{–}0.9\), followed by a decrease in Mach through the downstream expansion. The surface animation likewise tops out near \(M = 0.85\).</p>
-<p>A working converging–diverging nozzle should reach \(M = 1\) at the throat and then continue accelerating to \(M &gt; 1\) through the diverging section. This case instead remains predominantly subsonic: it speeds up in the converging region and slows down again as the area expands. It never establishes a sustained choked-flow plane, so I am treating this result as a <strong>failed geometry iteration</strong>, not as a performance result or thrust validation.</p>
-
-<h2 id="next-iteration">Next Iteration</h2>
-<p>My next step is to build a <strong>tighter model with a smaller effective throat</strong>, then rerun the same baseline conditions so the geometry change can be compared directly. The next design will only advance once the centerline and area-averaged results confirm \(M = 1\) at the throat, continued supersonic acceleration downstream, and a stable mass-flow plateau.</p>
+<h2 id="next-steps">Next Steps: Use the Full Exit</h2>
+<p>The throat problem is solved, but the exit is <strong>under utilized</strong>. The central region carries the highest speed and mass flux while substantial portions of the three lobed exit remain slower. My next objective is to spread the high speed flow across more of the available exit area while preserving the sonic throat and the Mach 3 plus core.</p>
+<ol>
+  <li><strong>Map exit utilization.</strong> Compare area weighted Mach, velocity, pressure, and mass flux across the full exit rather than relying only on a centerline value.</li>
+  <li><strong>Refine the transition into the lobes.</strong> Adjust the contour and area distribution so the expanding flow is guided into all three lobes instead of remaining concentrated near the center.</li>
+  <li><strong>Run controlled geometry variations.</strong> Change one feature at a time, including lobe width, transition length, wall curvature, and local area growth.</li>
+  <li><strong>Protect the working throat.</strong> Reject any candidate that loses Mach 1 at the throat, lowers the resolved exit core below Mach 3, or creates large flow separation.</li>
+  <li><strong>Verify the winning design.</strong> Continue to a tighter residual and mass balance, then perform mesh independence, viscous wall, heat transfer, cooling, and external plume studies.</li>
+</ol>
+<p>The optimization target is not simply a higher local peak. It is a larger fraction of the exit operating at high speed, a more uniform mass flux distribution, and a credible improvement in usable thrust.</p>
 
     </div>
   </div>
 
 
   <section class="simulation-results section-inner" aria-labelledby="simulation-results-title">
-    <p class="section-label">CFD Animations</p>
-    <h2 class="simulation-results-title" id="simulation-results-title">Mach and static pressure</h2>
-    <p class="simulation-results-intro">Both ParaView exports show the same 0–2 ms <code>rhoCentralFoam</code> startup transient. Use the controls to replay or inspect individual moments.</p>
+    <p class="section-label">Test 1 Animations</p>
+    <h2 class="simulation-results-title" id="simulation-results-title">The failed first model</h2>
+    <p class="simulation-results-intro">These ParaView exports show the same 0 to 2 ms <code>rhoCentralFoam</code> startup transient. Mach rises while static pressure falls, but the flow does not choke.</p>
     <div class="simulation-grid">
       <figure class="simulation-card">
         <div class="simulation-card-heading">
           <span class="simulation-field">Ma · Dimensionless</span>
-          <h3>Mach-number animation</h3>
+          <h3>Lobed Rocket Nozzle 1 Test (Mach)</h3>
         </div>
         <video controls muted loop playsinline preload="metadata" poster="/images/projects/tri-lobed-nozzle/mach-animation-poster.jpg">
           <source src="/videos/tri-lobed-nozzle-mach.mp4" type="video/mp4" />
           Your browser cannot play this video. <a href="/videos/tri-lobed-nozzle-mach.mp4">Download the Mach animation.</a>
         </video>
-        <figcaption>Mach rises toward the central constriction, but remains subsonic and falls again downstream. This is the failed choking result.</figcaption>
+        <figcaption>Mach approaches 1 near the constriction, remains subsonic, and falls downstream. This is the failed choking result.</figcaption>
       </figure>
       <figure class="simulation-card">
         <div class="simulation-card-heading">
           <span class="simulation-field">p · Pa</span>
-          <h3>Static-pressure animation</h3>
+          <h3>Lobed Rocket Nozzle 1 Test (Pressure)</h3>
         </div>
         <video controls muted loop playsinline preload="metadata" poster="/images/projects/tri-lobed-nozzle/pressure-animation-poster.jpg">
           <source src="/videos/tri-lobed-nozzle-pressure.mp4" type="video/mp4" />
           Your browser cannot play this video. <a href="/videos/tri-lobed-nozzle-pressure.mp4">Download the pressure animation.</a>
         </video>
-        <figcaption>Static pressure falls from the chamber side toward the exit—the correct inverse pattern relative to the rising Mach field.</figcaption>
+        <figcaption>Static pressure falls as Mach rises. The pattern is physically consistent, but it does not change the failed choking outcome.</figcaption>
       </figure>
     </div>
   </section>
 
 
-  <div class="article-gallery section-inner">
-    <p class="section-label">Diagnostic Images</p>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="/images/projects/NRN1.png" alt="Mesh quality of Nozzle" />
-      </div>
-      <div class="gallery-item">
-        <img src="/images/projects/tri-lobed-nozzle/mach-slice-failed-model.png" alt="Final internal Mach-number slice showing subsonic acceleration followed by downstream deceleration" />
-      </div>
+  <section class="test-evidence section-inner" aria-labelledby="test-two-evidence-title">
+    <p class="section-label">Test 2 Evidence</p>
+    <h2 class="simulation-results-title" id="test-two-evidence-title">The working second model</h2>
+    <p class="simulation-results-intro">The evidence follows the design sequence: the geometry, the exit mass flux distribution, the Mach animation, and the pressure animation.</p>
+    <div class="evidence-grid">
+      <figure class="gallery-item evidence-card evidence-card--model">
+        <img src="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-model-2.png" alt="Complete three lobed rocket nozzle second design model" />
+        <figcaption><strong>1. Lobed Rocket Nozzle 2 Model.</strong> The tightened throat establishes the sonic condition that Test 1 could not produce.</figcaption>
+      </figure>
+      <figure class="gallery-item evidence-card evidence-card--flux">
+        <img src="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-2-mass-flux.png" alt="Mass flux distribution across the three lobed nozzle exit" />
+        <figcaption><strong>2. Lobed Rocket Nozzle 2 Exit Mass Flux.</strong> The highest flux remains concentrated near the center, revealing the under utilized outer lobes and defining the next optimization target.</figcaption>
+      </figure>
     </div>
-  </div> 
+    <div class="simulation-grid simulation-grid--test-two">
+      <figure class="simulation-card">
+        <div class="simulation-card-heading">
+          <span class="simulation-field">Ma · Dimensionless</span>
+          <h3>Lobed Rocket Nozzle 2 Test (Mach)</h3>
+        </div>
+        <video controls muted loop playsinline preload="metadata" poster="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-2-mach-poster.jpg">
+          <source src="/videos/tri-lobed-nozzle-2-mach.mp4" type="video/mp4" />
+          Your browser cannot play this video. <a href="/videos/tri-lobed-nozzle-2-mach.mp4">Download the Test 2 Mach animation.</a>
+        </video>
+        <figcaption><strong>3. Mach.</strong> The flow reaches Mach 1 at the throat and approximately Mach 3.52 in the resolved exit core. The slower outer regions show why exit utilization is now the priority.</figcaption>
+      </figure>
+      <figure class="simulation-card">
+        <div class="simulation-card-heading">
+          <span class="simulation-field">p · Pa</span>
+          <h3>Lobed Rocket Nozzle 2 Test (Pressure)</h3>
+        </div>
+        <video controls muted loop playsinline preload="metadata" poster="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-2-pressure-poster.jpg">
+          <source src="/videos/tri-lobed-nozzle-2-pressure.mp4" type="video/mp4" />
+          Your browser cannot play this video. <a href="/videos/tri-lobed-nozzle-2-pressure.mp4">Download the Test 2 pressure animation.</a>
+        </video>
+        <figcaption><strong>4. Pressure.</strong> Static pressure drops from the chamber through the throat and exit as Mach rises, showing the expected conversion of pressure energy into velocity.</figcaption>
+      </figure>
+    </div>
+  </section>
 
   <div class="lightbox-overlay" id="lightbox">
     <button class="lightbox-close" id="lightbox-close" aria-label="Close image gallery">✕</button>

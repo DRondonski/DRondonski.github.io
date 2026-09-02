@@ -5,42 +5,42 @@
     <link>https://drondonski.github.io/</link>
     <description>Engineering research, projects, and experience from David Rondon</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Sep 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://drondonski.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Airfoil Geometry Optimization via Machine Learning &amp; CFD</title>
       <link>https://drondonski.github.io/projects/airfoil-geometry-optimization/</link>
       <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://drondonski.github.io/projects/airfoil-geometry-optimization/</guid>
-      <description>Python and machine-learning optimization, CFD evaluation, and wind-tunnel validation for generative NACA airfoil design.</description>
+      <description>Python and machine learning optimization, CFD evaluation, and wind tunnel validation for generative NACA airfoil design.</description>
     </item>
     <item>
       <title>Ice Accretion Modeling on Airfoil Surfaces Using LEWICE &amp; OpenFOAM</title>
       <link>https://drondonski.github.io/projects/ice-accretion-research/</link>
       <pubDate>Thu, 26 Mar 2026 00:00:00 +0000</pubDate>
       <guid>https://drondonski.github.io/projects/ice-accretion-research/</guid>
-      <description>NACA 0012 ice-accretion research presented at GURC and the 2026 AIAA Region II Student Conference.</description>
+      <description>NACA 0012 ice accretion research presented at GURC and the 2026 AIAA Region II Student Conference.</description>
     </item>
     <item>
-      <title>Three-Lobed Rocket Nozzle — First CFD Iteration</title>
+      <title>Three Lobed Rocket Nozzle Development</title>
       <link>https://drondonski.github.io/projects/novel-rocket-nozzle-design/</link>
-      <pubDate>Tue, 01 Sep 2026 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
       <guid>https://drondonski.github.io/projects/novel-rocket-nozzle-design/</guid>
-      <description>A rhoCentralFoam iteration whose Mach and pressure fields follow the expected inverse trend but fail to establish choked flow.</description>
+      <description>A rhoCentralFoam development cycle from a failed first model to a choked throat and Mach 3.52 resolved exit core, with full exit utilization as the next optimization target.</description>
     </item>
     <item>
       <title>Design Class Competition Winner</title>
       <link>https://drondonski.github.io/projects/design-class-competition-winner/</link>
       <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
       <guid>https://drondonski.github.io/projects/design-class-competition-winner/</guid>
-      <description>A competition-winning machine taken from SolidWorks design through laser cutting, soldering, and fabrication.</description>
+      <description>A competition winning machine taken from SolidWorks design through laser cutting, soldering, and fabrication.</description>
     </item>
     <item>
       <title>Georgia Tech Wreck Racing</title>
       <link>https://drondonski.github.io/projects/coming-soon/</link>
       <pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate>
       <guid>https://drondonski.github.io/projects/coming-soon/</guid>
-      <description>Hands-on race-team engineering using SolidWorks, MATLAB, power tools, and practical fabrication.</description>
+      <description>Practical race team engineering using SolidWorks, MATLAB, power tools, and fabrication.</description>
     </item>
   </channel>
 </rss>

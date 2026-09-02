@@ -115,18 +115,6 @@ body {
   line-height: 1.05; letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
 }
-.hero-project-title {
-  max-width: 650px;
-  font-size: clamp(2.65rem, 5vw, 4.6rem);
-}
-.hero-byline {
-  margin-bottom: 0.8rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
 .name-first { display: block; }
 .name-last { display: block; color: var(--accent); }
 .hero-desc {
@@ -243,47 +231,6 @@ body {
 .vs-1 { top: 20%; right: -3rem; text-align: right; }
 .vs-2 { bottom: 20%; right: -3rem; text-align: right; }
 .vs-3 { bottom: 20%; left: -3.5rem; }
-.featured-nozzle-frame {
-  width: 210px;
-  height: 210px;
-  border: 0;
-  border-radius: 22px;
-  background: #625e5a;
-  color: var(--text);
-  text-decoration: none;
-  box-shadow: 0 18px 60px rgba(0,0,0,0.55);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.featured-nozzle-frame:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 72px rgba(0,0,0,0.65);
-}
-.featured-nozzle-frame .visual-ring {
-  z-index: -1;
-}
-.featured-nozzle-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border: 1px solid rgba(200,169,110,0.4);
-  border-radius: 22px;
-}
-.featured-nozzle-label {
-  position: absolute;
-  left: 50%;
-  bottom: -2.2rem;
-  transform: translateX(-50%);
-  width: max-content;
-  padding: 0.35rem 0.65rem;
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  background: rgba(10,10,10,0.9);
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
 .hero-scroll-hint {
   position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
@@ -331,81 +278,53 @@ body {
 .section-link:hover { opacity: 0.7; }
 
 /* ============================================================
-   NOZZLE PROGRESS
+   NOZZLE QUICK LOOK
    ============================================================ */
-.section-nozzle-progress {
+.nozzle-quicklook {
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-  background: linear-gradient(135deg, rgba(200,169,110,0.06), var(--surface) 55%);
+  background: var(--surface);
 }
-.nozzle-progress-inner {
+.nozzle-quicklook-link {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.4fr);
-  gap: 3rem;
+  grid-template-columns: 112px minmax(0, 1fr) auto;
+  gap: 1.25rem;
   align-items: center;
+  color: var(--text);
+  text-decoration: none;
+  transition: background 0.2s ease;
 }
-.nozzle-progress-copy h2 {
-  max-width: 520px;
-  margin-bottom: 1rem;
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
-  line-height: 1.15;
+.nozzle-quicklook-link:hover {
+  background: rgba(200,169,110,0.05);
 }
-.nozzle-progress-copy p:not(.section-label) {
-  max-width: 560px;
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-.nozzle-progress-track {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  gap: 0.8rem;
-  align-items: stretch;
-}
-.home-progress-step {
-  padding: 1.2rem;
+.nozzle-quicklook-image {
+  width: 112px;
+  height: 82px;
+  object-fit: cover;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: var(--bg);
 }
-.home-progress-step span {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #e39a87;
+.nozzle-quicklook-copy .section-label {
+  margin-bottom: 0.2rem;
 }
-.home-progress-step strong {
-  display: block;
-  margin-bottom: 0.5rem;
+.nozzle-quicklook-copy h2 {
+  margin-bottom: 0.25rem;
   font-family: var(--font-display);
+  font-size: 1.2rem;
 }
-.home-progress-step p {
+.nozzle-quicklook-copy p:not(.section-label) {
   color: var(--text-muted);
-  font-size: 0.8rem;
-  line-height: 1.55;
+  font-size: 0.84rem;
+  line-height: 1.5;
 }
-.home-progress-step--working {
-  border-color: rgba(113,185,149,0.42);
-  background: rgba(113,185,149,0.07);
-}
-.home-progress-step--working span { color: #8fd2ae; }
-.home-progress-arrow {
-  align-self: center;
-  color: var(--accent);
-}
-.nozzle-progress-link {
-  display: inline-block;
-  margin-top: 1.25rem;
+.nozzle-quicklook-cta {
   color: var(--accent);
   font-family: var(--font-mono);
-  font-size: 0.78rem;
-  text-decoration: none;
+  font-size: 0.75rem;
+  white-space: nowrap;
 }
 
 /* ============================================================
@@ -631,9 +550,7 @@ body {
    ============================================================ */
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { display: flex; margin-top: 0.5rem; }
-  .hero-scroll-hint { display: none; }
-  .nozzle-progress-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-visual { display: none; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card--featured { grid-column: span 1; }
   .about-inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -644,8 +561,9 @@ body {
 @media (max-width: 640px) {
   .nav-links { display: none; }
   .solar-scene { width: 300px; height: 300px; }
-  .nozzle-progress-track { grid-template-columns: 1fr; }
-  .home-progress-arrow { justify-self: center; transform: rotate(90deg); }
+  .nozzle-quicklook-link { grid-template-columns: 72px minmax(0, 1fr); gap: 1rem; padding: 1rem 1.25rem; }
+  .nozzle-quicklook-image { width: 72px; height: 72px; }
+  .nozzle-quicklook-cta { grid-column: 2; }
   .orbit { width: 270px; height: 270px; margin-top: -135px; margin-left: -135px; }
 }
 </style>
@@ -674,24 +592,24 @@ body {
   <div class="hero-inner">
     <div class="hero-content">
       <p class="hero-eyebrow">
-        Featured Engineering Project
+        Mechanical Engineering · Biology Minor
       </p>
-      <p class="hero-byline">David Rondon · Mechanical Engineering</p>
-      <h1 class="hero-name hero-project-title">
-        <span class="name-first">Working Three Lobed</span>
-        <span class="name-last">Rocket Nozzle</span>
+      <h1 class="hero-name">
+        <span class="name-first">David</span>
+        <span class="name-last">Rondon</span>
       </h1>
-      <p class="hero-desc">My most technical project to date: a complete <code>rhoCentralFoam</code> development cycle from a failed first model to a choked throat and a resolved Mach 3.52 exit core. The next challenge is using more of the lobed exit at high speed.</p>
+      <p class="hero-desc">Georgia Tech mechanical engineering student combining propulsion and CFD research with structural design, engineering operations, and technical AI experience.</p>
       <div class="hero-tags">
-        <span class="htag">Mach 1 Throat</span>
-        <span class="htag">Mach 3.52 Exit Core</span>
-        <span class="htag">rhoCentralFoam</span>
-        <span class="htag">OpenFOAM</span>
-        <span class="htag">Approximately 212,000 Cells</span>
+        <span class="htag">Rocket Propulsion</span>
+        <span class="htag">CFD / OpenFOAM</span>
+        <span class="htag">Nozzle Design</span>
+        <span class="htag">Structural Engineering</span>
+        <span class="htag">Engineering Management</span>
+        <span class="htag">Python · Revit · SolidWorks</span>
       </div>
       <div class="hero-actions">
-        <a href="/projects/novel-rocket-nozzle-design/" class="btn-primary">Explore the Nozzle →</a>
-        <a href="#projects" class="btn-ghost">All Projects</a>
+        <a href="#projects" class="btn-primary">View Projects →</a>
+        <a href="#experience" class="btn-ghost">Experience</a>
       </div>
     </div>
     <div class="hero-visual">
@@ -706,13 +624,16 @@ body {
         <div class="orbit" style="--start:252deg"><div class="planet planet-uranus"></div><div class="planet-label">Uranus</div></div>
         <div class="orbit" style="--start:288deg"><div class="planet planet-neptune"></div><div class="planet-label">Neptune</div></div>
         <div class="orbit" style="--start:324deg"><div class="planet planet-pluto"></div><div class="planet-label">Pluto</div></div>
-        <a href="/projects/novel-rocket-nozzle-design/" class="visual-frame featured-nozzle-frame" aria-label="Open the three lobed rocket nozzle development project">
+        <div class="visual-frame">
           <div class="visual-ring ring-1"></div>
           <div class="visual-ring ring-2"></div>
           <div class="visual-ring ring-3"></div>
-          <img class="featured-nozzle-image" src="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-2-mass-flux.png" alt="Mass flux across the three lobed nozzle exit" />
-          <span class="featured-nozzle-label">Working CFD Result · Test 2</span>
-        </a>
+          <span class="vc-label">Flow Regime</span>
+          <span class="vc-val">M∞ 2.4</span>
+          <div class="visual-stat vs-1"><span>Re</span><strong>4.2×10⁶</strong></div>
+          <div class="visual-stat vs-2"><span>Isp</span><strong>312 s</strong></div>
+          <div class="visual-stat vs-3"><span>Pc</span><strong>500 psi</strong></div>
+        </div>
       </div>
     </div>
   </div>
@@ -722,28 +643,16 @@ body {
   </div>
 </section>
 
-<section class="section-nozzle-progress" aria-labelledby="nozzle-progress-title">
-  <div class="nozzle-progress-inner">
-    <div class="nozzle-progress-copy">
-      <p class="section-label">Development Progress</p>
-      <h2 id="nozzle-progress-title">From failed throat to supersonic exit</h2>
-      <p>The first model accelerated the flow but never choked. The second reaches Mach 1 at the throat and Mach 3 plus at the exit. Now I am optimizing the geometry so more of the three lobed exit carries useful high speed flow.</p>
-      <a class="nozzle-progress-link" href="/projects/novel-rocket-nozzle-design/">See the complete development →</a>
+<section class="nozzle-quicklook" aria-labelledby="nozzle-quicklook-title">
+  <a class="nozzle-quicklook-link" href="/projects/novel-rocket-nozzle-design/">
+    <img class="nozzle-quicklook-image" src="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-2-mass-flux.png" alt="Mass flux across the three lobed nozzle exit" />
+    <div class="nozzle-quicklook-copy">
+      <p class="section-label">Current Technical Project</p>
+      <h2 id="nozzle-quicklook-title">Three Lobed Rocket Nozzle</h2>
+      <p>Choked throat · Mach 3.52 resolved exit core · Full exit utilization is the next optimization target</p>
     </div>
-    <div class="nozzle-progress-track">
-      <div class="home-progress-step">
-        <span>Test 1</span>
-        <strong>Failed model</strong>
-        <p>Approached Mach 1, then decelerated through the expansion.</p>
-      </div>
-      <span class="home-progress-arrow" aria-hidden="true">→</span>
-      <div class="home-progress-step home-progress-step--working">
-        <span>Test 2</span>
-        <strong>Working milestone</strong>
-        <p>Choked throat, Mach 3.52 exit core, with exit utilization still to optimize.</p>
-      </div>
-    </div>
-  </div>
+    <span class="nozzle-quicklook-cta">View Project →</span>
+  </a>
 </section>
 
 <!-- ============================================================

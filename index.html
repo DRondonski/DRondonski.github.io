@@ -281,16 +281,16 @@ body {
    NOZZLE QUICK LOOK
    ============================================================ */
 .nozzle-quicklook {
-  border-top: 1px solid var(--border);
+  border-top: 2px solid var(--accent);
   border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  background: linear-gradient(90deg, rgba(200,169,110,0.12), var(--surface) 48%);
 }
 .nozzle-quicklook-link {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 1.2rem 2rem;
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr) auto;
+  grid-template-columns: 132px minmax(0, 1fr) auto;
   gap: 1.25rem;
   align-items: center;
   color: var(--text);
@@ -298,22 +298,34 @@ body {
   transition: background 0.2s ease;
 }
 .nozzle-quicklook-link:hover {
-  background: rgba(200,169,110,0.05);
+  background: rgba(200,169,110,0.08);
 }
 .nozzle-quicklook-image {
-  width: 112px;
-  height: 82px;
+  width: 132px;
+  height: 90px;
   object-fit: cover;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(200,169,110,0.45);
   border-radius: var(--radius);
 }
-.nozzle-quicklook-copy .section-label {
-  margin-bottom: 0.2rem;
+.nozzle-featured-label {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 0.45rem;
+  padding: 0.28rem 0.55rem;
+  border-radius: 2px;
+  background: var(--accent);
+  color: #0a0a0a;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 .nozzle-quicklook-copy h2 {
   margin-bottom: 0.25rem;
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.45rem;
+  line-height: 1.15;
 }
 .nozzle-quicklook-copy p:not(.section-label) {
   color: var(--text-muted);
@@ -321,10 +333,18 @@ body {
   line-height: 1.5;
 }
 .nozzle-quicklook-cta {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid rgba(200,169,110,0.55);
+  border-radius: var(--radius);
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: 0.75rem;
   white-space: nowrap;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.nozzle-quicklook-link:hover .nozzle-quicklook-cta {
+  background: var(--accent);
+  color: #0a0a0a;
 }
 
 /* ============================================================
@@ -647,7 +667,7 @@ body {
   <a class="nozzle-quicklook-link" href="/projects/novel-rocket-nozzle-design/">
     <img class="nozzle-quicklook-image" src="/images/projects/tri-lobed-nozzle/lobed-rocket-nozzle-2-mass-flux.png" alt="Mass flux across the three lobed nozzle exit" />
     <div class="nozzle-quicklook-copy">
-      <p class="section-label">Current Technical Project</p>
+      <p class="nozzle-featured-label">Featured Project</p>
       <h2 id="nozzle-quicklook-title">Three Lobed Rocket Nozzle</h2>
       <p>Choked throat · Mach 3.52 resolved exit core · Full exit utilization is the next optimization target</p>
     </div>

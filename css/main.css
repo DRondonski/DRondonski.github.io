@@ -1000,7 +1000,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   text-transform: uppercase;
   color: var(--accent);
 }
-.simulation-card h3 {
+.simulation-card-heading h3 {
   font-size: 1.05rem;
   line-height: 1.3;
 }
